@@ -1,0 +1,1 @@
+pipenv install -e git+https://github.com/twintproject/twint.git#egg=twint
