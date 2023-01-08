@@ -4,10 +4,12 @@ on:
       - main
 name: 🎉 Deploy Dashboard
 jobs:
-  prepare:
-    name: 🚀 Deploy
+  check-bats-version:
     runs-on: ubuntu-latest
-    needs: prepare
     steps:
-    - name: 🚚 Pegando codigo mais recente...
-      uses: actions/checkout@v2
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+      - run: npm install -g bats
+      - run: bats -v
